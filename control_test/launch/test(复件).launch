@@ -1,0 +1,7 @@
+<launch>
+    <include file="/home/ubuntu18/mavros_ws/src/mavros/mavros/launch/px4.launch"/>
+    <node name="action_server" pkg="control_test"
+          type="actiontest" output="screen"/>
+    <node name="Behavior_tree" pkg="control_test"
+          type="behavior_test" output="screen"/>
+</launch>
