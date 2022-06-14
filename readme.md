@@ -46,5 +46,47 @@ sudo apt-get install ros-melodic-zbar-ros
 ```
 
 ## 使用
+**编译工作空间**
+```bash
+cd ~/catkin_ws/src
+git clone https://github.com/gcx158632979/lyao_tutorial
+catkin_make -DCATKIN_WHITELIST_PACKAGES="catkin_simple"
+catkin_make -DCATKIN_WHITELIST_PACKAGES="eigen_catkin"
+catkin_make -DCATKIN_WHITELIST_PACKAGES="glog_catkin"
+catkin_make -DCATKIN_WHITELIST_PACKAGES="eigen_checks"
+catkin_make -DCATKIN_WHITELIST_PACKAGES="nlopt"
+catkin_make
+```
+**启动px4仿真**
+```bash
+cd <PX4-Autopilot_clone>
+DONT_RUN=1 make px4_sitl_default gazebo
+source ~/catkin_ws/devel/setup.bash   
+source Tools/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
+export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)
+export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)/Tools/sitl_gazebo
+roslaunch px4 posix_sitl.launch
+```
+**$(pwd) means your path**
+**启动qgc**
+```bash
+./QGroundControl.AppImage
+```
 
-
+## 测试
+**启动takeoff节点**
+```bash
+rosrun control_test takeoff
+```
+**启动高度控制节点**
+```bash
+rosrun control_test heightcontrol
+```
+**启动轨迹跟踪节点**
+```bash
+rosrun control_test followtraj
+```
+**启动摄像头节点**
+```bash
+roslaunch zbar_ros example_usb.launch
+```
