@@ -86,6 +86,10 @@ rosrun control_test heightcontrol
 ```bash
 rosrun control_test followtraj
 ```
+**启动demo节点**
+```bash
+rosrun control_test demo
+```
 **启动摄像头节点**
 ```bash
 roslaunch zbar_ros example_usb.launch
