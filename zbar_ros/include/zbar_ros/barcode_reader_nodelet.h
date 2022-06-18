@@ -41,7 +41,7 @@
 #include "opencv2/opencv.hpp"
 #include "ros/ros.h"
 #include "zbar.h"
-
+#include "string"
 namespace zbar_ros
 {
 
@@ -65,7 +65,7 @@ private:
 
   std::mutex memory_mutex_;
   boost::unordered_map<std::string, ros::Time> barcode_memory_;
-
+  std::string topic_name;
   double throttle_;
 };
 

@@ -12,6 +12,7 @@
 
     <node pkg="zbar_ros" type="barcode_reader_node" name="barcode_reader">
         <param name="throttle_repeated_barcodes" type="double" value="2.0"/>
+        <param name="topic_name" type="string" value="/iris/usb_cam/image_raw"/>
     </node>
 
 </launch>

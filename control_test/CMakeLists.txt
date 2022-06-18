@@ -135,6 +135,7 @@ add_executable(heightcontrol src/heightcontrol.cpp)
 target_link_libraries(heightcontrol ${catkin_LIBRARIES})
 add_dependencies(heightcontrol ${catkin_EXPORTED_TARGETS})
 
-
-
+add_executable(demo src/demo.cpp)
+target_link_libraries(demo ${catkin_LIBRARIES})
+add_dependencies(demo ${catkin_EXPORTED_TARGETS})
 
